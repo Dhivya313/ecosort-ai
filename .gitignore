@@ -1,0 +1,7 @@
+.env
+venv/
+__pycache__/
+chroma_db/
+chroma_db_qa/
+chroma_db_test/
+chroma_db_test_e2e/
