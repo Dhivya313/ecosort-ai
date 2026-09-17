@@ -446,29 +446,15 @@ _EXT_TO_MIME = {
 # ---------------------------------------------------------------------------
 with st.container():
     st.markdown('<div class="upload-container">', unsafe_allow_html=True)
-    st.markdown('<p class="upload-label">Add Waste Image</p>'
-                '<p class="upload-hint">Upload a photo or use your camera to capture a waste item.</p>',
+    st.markdown('<p class="upload-label">Upload Waste Image</p>'
+                '<p class="upload-hint">Choose a photo or tap Browse to take one with your camera on mobile.</p>',
                 unsafe_allow_html=True)
-
-    input_mode = st.radio(
-        "Choose input method",
-        ["📁 Upload Image", "📷 Use Camera"],
-        horizontal=True,
+    active_image = st.file_uploader(
+        "Upload waste image",
+        type=["jpg", "jpeg", "png"],
+        help="Supported formats: JPG, JPEG, PNG",
         label_visibility="collapsed",
     )
-
-    if input_mode == "📁 Upload Image":
-        active_image = st.file_uploader(
-            "Upload waste image",
-            type=["jpg", "jpeg", "png"],
-            help="Supported formats: JPG, JPEG, PNG",
-            label_visibility="collapsed",
-        )
-    else:
-        active_image = st.camera_input(
-            "📷 Take a photo of your waste item",
-            label_visibility="collapsed",
-        )
 
     st.markdown('</div>', unsafe_allow_html=True)
 
